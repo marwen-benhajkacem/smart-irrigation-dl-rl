@@ -20,8 +20,8 @@ def make_dssat(seed=0, mode=None, random_weather=True, log_path=None):
         return gym.make(C.ENV_ID, **args)
     except Exception as first_error:   # repli : import direct de la classe
         try:
-            from gym_dssat_pdi.envs.dssat_pdi import GymDssatPdi
-            return GymDssatPdi(**args)
+            from gym_dssat_pdi.envs.dssat_pdi import DssatPdi
+            return DssatPdi(**args)
         except Exception as second_error:
             raise RuntimeError(
                 "Impossible de créer gym-DSSAT.\n"
