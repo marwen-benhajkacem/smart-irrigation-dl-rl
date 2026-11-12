@@ -1,0 +1,5 @@
+# À installer dans Google Colab (Entraînement Deep Learning). PyTorch, numpy, pandas, sklearn y sont déjà installés.
+wandb
+xgboost
+cdsapi>=0.7.2
+scipy

@@ -1,0 +1,18 @@
+# À installer DANS le conteneur Docker de gym-DSSAT (voir guide, Semaine 1)
+# Vérifiez d'abord: python --version  (>= 3.8 requis)
+numpy==1.26.4
+pandas==2.2.3
+scipy
+scikit-learn
+matplotlib
+pyyaml
+tqdm
+tensorboard
+wandb
+gymnasium==0.29.1
+stable-baselines3==2.3.2
+sb3-contrib==2.3.0
+# PyTorch version CPU (suffisant pour le RL) :
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+# Optionnel :
+#   pip install xgboost cdsapi anthropic

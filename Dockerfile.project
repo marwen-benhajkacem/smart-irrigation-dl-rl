@@ -1,0 +1,27 @@
+
+FROM gym-dssat:debian-bookworm
+
+COPY config/gym-dssat/env_config.yml /opt/gym_dssat_pdi/lib/python3.11/site-packages/gym_dssat_pdi/envs/configs/maize/env_config.yml
+COPY requirements_docker.txt /tmp/requirements_docker.txt
+
+USER gymusr
+
+RUN python -m venv --system-site-packages /home/gymusr/venvs/irrigation
+ENV PATH="/home/gymusr/venvs/irrigation/bin:/opt/gym_dssat_pdi/bin:/opt/dssat_pdi:/usr/local/bin:/usr/bin:/bin"
+ENV VIRTUAL_ENV=/home/gymusr/venvs/irrigation
+ENV PYTHONNOUSERSITE=1
+ENV PIP_USER=false
+ENV PYTHONPATH="/opt/gym_dssat_pdi/lib/python3.11/site-packages"
+
+RUN /home/gymusr/venvs/irrigation/bin/python -m pip install --no-cache-dir --upgrade pip
+
+RUN /home/gymusr/venvs/irrigation/bin/python -m pip install --no-cache-dir \
+    filelock typing-extensions setuptools sympy networkx jinja2 fsspec
+
+RUN /home/gymusr/venvs/irrigation/bin/python -m pip install --no-cache-dir --no-deps \
+    torch --index-url https://download.pytorch.org/whl/cpu
+
+RUN /home/gymusr/venvs/irrigation/bin/python -m pip install --no-cache-dir \
+    -r /tmp/requirements_docker.txt
+
+WORKDIR /workspace
