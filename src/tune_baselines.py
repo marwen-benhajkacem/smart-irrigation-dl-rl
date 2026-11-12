@@ -21,7 +21,7 @@ def main():
     seeds = C.SEEDS["val"][: args.n_seeds]
 
     rows = []
-    for period, amount in itertools.product([3, 5, 7, 10, 14], [10, 15, 20]):
+    for period, amount in itertools.product([1, 2, 3, 4, 5, 7, 10], [3, 5, 7.5, 10, 12.5, 15]):
         df = evaluate_policy(FixedCalendar(period, amount), seeds, args.episodes)
         rows.append(dict(kind="calendar", period=period, amount=amount, thr=None, reward=df.reward_total.mean(),
                          yield_kg_ha=df.yield_kg_ha.mean(), irrig_mm=df.irrig_mm.mean()))
