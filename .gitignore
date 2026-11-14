@@ -1,8 +1,30 @@
-data/
-models/
-logs/
-results/
+# Python
 __pycache__/
 *.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+# Backups
 *.bak
 *.bak2
+# Secrets
+.env
+*.key
+.cdsapirc
+# Heavy / regenerable
+data/raw/
+data/processed/
+models/
+logs/
+wandb/
+results/tb/
+*.pt
+*.pth
+*.zip
+*.nc
+# Keep results (small CSV/JSON/figures) public; keep folders
+!**/.gitkeep
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
