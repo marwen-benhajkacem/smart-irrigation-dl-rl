@@ -68,4 +68,4 @@ results/      figures
 - [ ] Stress tests, ERA5-Land validation, explanations
 
 ## 👥 Authors
-Marwen Ben Haj Kacem · Farah Baaziz, Master's in Data Science, ISIMA.
+Marwen Ben Haj Kacem Master's in Data Science, ISIMA.
